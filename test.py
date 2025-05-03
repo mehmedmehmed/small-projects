@@ -14,4 +14,16 @@ try:
         conn.commit()
         pass
 except sqlite3.OperationalError as e:
-    print('Failed to pen database:', e)
+    print('Failed to open database:', e)
+
+
+def add_task(x1, x2, x3):
+    try:
+        with sqlite3.connect(database) as connect:
+            cursor1 = connect.cursor()
+            cursor1.execute(f'''INSERT INTO Test (column_1, column_2, column_3)
+            VALUES ({x1}, {x2}, {x3});''')
+            connect.commit()
+            pass
+    except sqlite3.OperationalError as oe:
+        print('Failed to Integrate:', oe)

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+<style>
+    body {
+    background-color: #333333;
+    color: white;
+    }
+    table, th, td {
+    border:1px solid black;
+    overflow-x:auto;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Hier sind die Ergebnisse:</h1>
+    <div>
+        <form method="POST" action="/get_score">
+        <table style="text-align:left">
+          <tr style="width:100% ">
+            <th>Land</th>
+            <th>Kommentar</th>
+            <th>Song</th>
+            <th>Show</th>
+          </tr>
+          <tr style="width:100%">
+              <th></th>
+              <th>
+                  <input type="text" id="comment" name="comment" placeholder="schreib was rein">
+              </th>
+              <th>
+                  <select id="song_score" name="song_score">
+                      <option value="null"></option>
+                      <option value="10">10</option>
+                      <option value="9">9</option>
+                      <option value="8">8</option>
+                      <option value="7">7</option>
+                      <option value="6">6</option>
+                      <option value="5">5</option>
+                      <option value="4">4</option>
+                      <option value="3">3</option>
+                      <option value="2">2</option>
+                      <option value="1">1</option>
+                  </select>
+              </th>
+              <th>
+                  <select id="perf_score" name="perf_score">
+                      <option value="null"></option>
+                      <option value="10">10</option>
+                      <option value="9">9</option>
+                      <option value="8">8</option>
+                      <option value="7">7</option>
+                      <option value="6">6</option>
+                      <option value="5">5</option>
+                      <option value="4">4</option>
+                      <option value="3">3</option>
+                      <option value="2">2</option>
+                      <option value="1">1</option>
+                  </select>
+              </th>
+          </tr>
+        </table>
+        <input type="submit" value="Submit">
+        </form>
+    </div>
+    <div>
+        <button>
+            <a href="/second">Result</a>
+        </button>
+    </div>
+</body>
+</html>

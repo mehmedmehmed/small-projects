@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESC Score</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1 style="margin-left: 8vh">Scoring Form</h1>
+    <div>
+        <form method="POST" action="/get_score">
+            <label>Land</label>
+            <select id="song_id" name="song_id">
+                {% for song in songs %}
+                    <option value="{{ song.song_id }}">
+                        {{ song.song_country }}:  "{{ song.song_name }}" by {{ song.song_artist }}
+                    </option>
+                {% endfor %}
+            </select>
+
+            <label for="song_score">Song Score</label>
+            <select id="song_score" name="song_score">
+              <option value="10">10</option>
+              <option value="9">9</option>
+              <option value="8">8</option>
+              <option value="7">7</option>
+              <option value="6">6</option>
+              <option value="5">5</option>
+              <option value="4">4</option>
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+            </select>
+
+            <label for="perf_score">Performance Score</label>
+            <select id="perf_score" name="perf_score">
+              <option value="10">10</option>
+              <option value="9">9</option>
+              <option value="8">8</option>
+              <option value="7">7</option>
+              <option value="6">6</option>
+              <option value="5">5</option>
+              <option value="4">4</option>
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+            </select>
+
+            <label for="comment">Kommentar</label>
+            <input type="text" id="comment" name="comment" placeholder="schreib was rein">
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <div>
+        <button style="margin-left: 17vh; height:40px">
+            <a href="/second">Result</a>
+        </button>
+    </div>
+</body>
+</html>

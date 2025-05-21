@@ -1,0 +1,187 @@
+/* CSS Variables from the latest uiverse example */
+:root {
+    --background: #d3d3d3; /* Form background color */
+    --input-focus: #2d8cf0;
+    --font-color: #323232; /* Main text color, border color */
+    --font-color-sub: #666; /* Sub text color */
+    --bg-color: #fff; /* Input/button background color */
+    --main-color: #323232; /* Used for borders and shadows */
+
+    /* Note: Font variables like --font-DelaGothicOne and --font-SpaceMono
+       were in the snippet but require specific font imports (@import or @font-face)
+       to work. I've omitted them here and will use a standard sans-serif font. */
+}
+
+/* General body and layout */
+body {
+    font-family: sans-serif; /* Using a standard sans-serif font */
+    margin: 20px;
+    background-color: darkgrey; /* Body background matches form background here */
+    color: var(--font-color); /* Main text color for body */
+    /* Optional: Use flexbox on body to center content if you wrap everything in one container */
+    /* display: flex;
+    justify-content: center;*/
+}
+
+h1, h2 {
+    color: var(--main-color);
+    margin-bottom: 20px;
+}
+
+p {
+    color: var(--font-color-sub); /* Sub text color for paragraphs */
+}
+
+
+body > div:first-child {
+    max-width: 600px; /* Set a maximum width */
+    margin: 0 auto 20px auto; /* Center the block, add margin below */
+    padding: 20px; /* Add some padding for text inside */
+    background-color: var(--bg-color); /* Add a background for clarity */
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    box-shadow: 4px 4px var(--main-color);
+    box-sizing: border-box;
+}
+
+form {
+    border: 2px solid var(--main-color);
+    padding: 30px;
+    margin: 0 auto 20px auto; /* Center the form, add margin below */
+    max-width: 600px; /* Set a maximum width */
+    background: var(--background); /* Use the specified form background */
+    border-radius: 5px;
+    box-shadow: 4px 4px var(--main-color);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    box-sizing: border-box;
+}
+
+/* Style for the last div (Result button container) - Centered */
+body > div:last-child {
+     max-width: 600px; /* Set a maximum width */
+     margin: 20px auto; /* Center the block, add margin above and below */
+     text-align: center; /* Center the button inside the div if it's smaller than max-width */
+}
+
+/* --- End Centering and Max Width Styles --- */
+
+
+/* Styling for select and input fields - Adopted from the latest .form > input style */
+select,
+input[type="text"] {
+    box-sizing: border-box;
+    width: 100%; /* Make fields take full width of the *limited* form */
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--main-color);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--font-color);
+    padding: 5px 10px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    margin-bottom: 0; /* Gap is handled by form's gap */
+}
+
+/* Style for placeholder text */
+input[type="text"]::placeholder {
+    color: var(--font-color-sub);
+    opacity: 0.8;
+}
+
+/* Focus style for inputs/selects */
+select:focus,
+input[type="text"]:focus {
+    border-color: var(--input-focus);
+}
+
+
+/* Button styling - Adopted from the latest .oauthButton style */
+button,
+input[type="submit"] {
+    box-sizing: border-box;
+    margin-top: 10px;
+    margin-left: 12vh;
+    width: auto;
+    height: 40px;
+    padding: 0 15px;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--main-color);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--font-color);
+    cursor: pointer;
+    transition: all 250ms ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* Button hover effect - Adopted from .oauthButton::before and :hover */
+button::before,
+input[type="submit"]::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: #212121;
+    z-index: -1;
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms ease;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    color: #e8e8e8;
+}
+
+button:hover::before,
+input[type="submit"]:hover::before {
+    width: 100%;
+}
+
+
+/* Active state for buttons - Reusing the style from the previous sketch example */
+button:active,
+input[type="submit"]:active {
+    box-shadow: 0px 0px var(--main-color);
+    transform: translate(3px, 3px);
+    color: #e8e8e8;
+}
+
+
+/* Style for the link inside the button (Result button) */
+button a {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 15px; /* Added padding to the link to fill the button */
+}
+
+/* Adjustments for the div wrapping the result button */
+/* div:last-child already has margin and max-width */
+
+/* Specific style for the result button itself to ensure link padding/size works */
+div:last-child button {
+     /* If the link inside handles padding/sizing, remove padding from the button */
+     padding: 0;
+     height: auto;
+}

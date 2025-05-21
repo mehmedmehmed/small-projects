@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Willkommen</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div>
+    <h1 style="justify-content: center;">Willkommen an dem ESC 2025 Abend</h1>
+    <p>Die Länder sind nicht der Reihenfolge nach geordnet. Ihr wählt das Land, wofür ihr ein Rating geben wollt, ihr rated es und könnt kommentieren.</p>
+    <p>Am Ende wird es eine Zusammenfassung geben, wer welchem Song welchen Score gegeben hat und was die kommentiert haben</p>
+    </div>
+    <form method="POST" action="/login">
+        <label for="username" style="font-size: 36px; font-weight: 600; allign-items: center; "> What's your Name?</label>
+        <input type="text" id="username" name="username" placeholder="Name">
+        <br>
+        <input type="submit" value="Rein da" style="allign-content: center;">
+    </form>
+</body>
+</html>
